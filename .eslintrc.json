@@ -4,18 +4,20 @@
   "parserOptions": { "project": "./tsconfig.json" },
   "env": { "es6": true },
   "ignorePatterns": ["node_modules", "build", "coverage"],
-  "plugins": ["import", "eslint-comments", "functional"],
+  "plugins": ["import", "eslint-comments", "@typescript-eslint"],
   "extends": [
     "eslint:recommended",
     "plugin:eslint-comments/recommended",
     "plugin:@typescript-eslint/recommended",
     "plugin:import/typescript",
-    "plugin:functional/lite",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:@typescript-eslint/recommended-requiring-type-checking",
     "prettier",
     "prettier/@typescript-eslint"
   ],
   "globals": { "BigInt": true, "console": true, "WebAssembly": true },
   "rules": {
+    "@typescript-eslint/ban-ts-comment": "off",
     "@typescript-eslint/no-unused-vars": "off",
     "@typescript-eslint/explicit-module-boundary-types": "off",
     "eslint-comments/disable-enable-pair": [
@@ -23,10 +25,6 @@
       { "allowWholeFile": true }
     ],
     "eslint-comments/no-unused-disable": "error",
-    "import/order": [
-      "error",
-      { "newlines-between": "always", "alphabetize": { "order": "asc" } }
-    ],
     "sort-imports": [
       "error",
       { "ignoreDeclarationSort": true, "ignoreCase": true }
@@ -59,7 +57,9 @@
         "ignoreRegExpLiterals": true,
         "code": 120
       }
-    ]
+    ],
+    "import/order": "off",
+    "functional/no-class": "off"
   },
   "overrides": [
     {
