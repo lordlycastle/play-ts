@@ -1,3 +1,3 @@
 # play-ts
 
-Playground for TS & IntelliJ
+Playground for TS. Works with IntelliJ & VSCode!
