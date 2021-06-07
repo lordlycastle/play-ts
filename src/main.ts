@@ -58,3 +58,17 @@ async function flowCurried(): Promise<string> {
 }
 
 // llog(await flowCurried());
+
+
+
+// This should make all picked required...
+type PickWhereValue<T, K extends keyof T> = {
+      [Key in K]-?: T[Key] extends null | undefined ? never : T[Key];
+    };
+type OptionalConditions = { a?: string; b?: number };
+let pickedFromOptional: PickWhereValue<OptionalConditions, 'a' | 'b'>;
+pickedFromOptional = {};
+llog(pickedFromOptional);
+// Now how do you do this based on value.
+const whereOptional: OptionalConditions = {a: 'xyz', b: 21 };
+// const where: PickWhereValue<OptionalConditions, Object.keys(whereOptional)>
